@@ -2,33 +2,54 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main] # Or your default branch name
+  workflow_dispatch: # Allow manual triggering
 
 permissions:
-  contents: write
+  contents: write # Needed for pushing to gh-pages branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: "22.x" # Updated to Node 22.x to match your local environment
           cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
+      - name: Build React app
         run: npm run build
+
+      - name: Create CNAME file for custom domain
+        run: echo "tabirkeland.com" > ./dist/CNAME
+
+      - name: Create .nojekyll file
+        run: touch ./dist/.nojekyll
+
+      # Optional step to debug the output directory if needed
+      - name: List build output files
+        run: ls -la ./dist
+
+      # Set proper MIME types for JavaScript files
+      - name: Create _headers file for MIME types
+        run: |
+          echo "/*" > ./dist/_headers
+          echo "  Access-Control-Allow-Origin: *" >> ./dist/_headers
+          echo "*.js" >> ./dist/_headers
+          echo "  Content-Type: application/javascript" >> ./dist/_headers
+          echo "*.mjs" >> ./dist/_headers
+          echo "  Content-Type: application/javascript" >> ./dist/_headers
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
-          branch: gh-pages
+          folder: dist # Vite builds to dist folder
+          branch: gh-pages # The branch to deploy to
+          clean: true # Automatically remove deleted files from the deploy branch

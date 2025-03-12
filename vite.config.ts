@@ -11,24 +11,24 @@ export default defineConfig(({ command }) => {
     },
   };
 
+  // dev-specific config
   if (command === "serve") {
-    // dev-specific config
     return common;
-  } else {
-    // production-specific config
-    return {
-      ...common,
-      build: {
-        assetsInlineLimit: 0,
-        rollupOptions: {
-          output: {
-            entryFileNames: "assets/[name].[hash].js",
-            chunkFileNames: "assets/[name].[hash].js",
-            assetFileNames: "assets/[name].[hash].[ext]",
-            format: "es",
-          },
+  }
+
+  // production-specific config
+  return {
+    ...common,
+    build: {
+      assetsInlineLimit: 0,
+      rollupOptions: {
+        output: {
+          entryFileNames: "assets/[name].[hash].js",
+          chunkFileNames: "assets/[name].[hash].js",
+          assetFileNames: "assets/[name].[hash].[ext]",
+          format: "es",
         },
       },
-    };
-  }
+    },
+  };
 });
