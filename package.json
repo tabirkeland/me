@@ -1,9 +1,9 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "taylor-birkeland",
   "private": true,
   "version": "0.0.4",
   "type": "module",
-  "homepage": "https:",
+  "homepage": "https://tabirkeland.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
