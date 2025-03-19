@@ -12,17 +12,40 @@ import {
   Cpu,
   LineChart,
   Layers,
+  Download,
 } from "lucide-react";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Handle resume download
+  const handleResumeDownload = () => {
+    // Create a link element
+    const link = document.createElement("a");
+
+    // Set the link's href to the path of your PDF file
+    // You would need to add your actual resume.pdf to the public folder of your React app
+    link.href = "/resume.pdf";
+
+    // Set download attribute to suggest a filename
+    link.download = "taylor_birkeland_resume.pdf";
+
+    // Append link to the body
+    document.body.appendChild(link);
+
+    // Trigger the download
+    link.click();
+
+    // Clean up: remove the link from the DOM
+    document.body.removeChild(link);
+  };
+
   const sections = [
     { id: "about", title: "About", number: "01" },
     { id: "skills", title: "Skills", number: "02" },
     { id: "experience", title: "Experience", number: "03" },
-    { id: "contact", title: "Contact", number: "04" },
-    { id: "education", title: "Education", number: "05" },
+    { id: "education", title: "Education", number: "04" },
+    { id: "contact", title: "Contact", number: "05" },
   ];
 
   const skills = [
@@ -117,12 +140,13 @@ function App() {
                   {section.title}
                 </a>
               ))}
-              <a
-                href="#"
-                className="px-4 py-2 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors"
+              <button
+                onClick={handleResumeDownload}
+                className="px-4 py-2 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors flex items-center"
               >
+                <Download className="w-4 h-4 mr-2" />
                 Resume
-              </a>
+              </button>
             </div>
           </div>
 
@@ -141,12 +165,16 @@ function App() {
                     {section.title}
                   </a>
                 ))}
-                <a
-                  href="#"
-                  className="inline-block px-4 py-2 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors mt-4"
+                <button
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    handleResumeDownload();
+                  }}
+                  className="inline-flex items-center px-4 py-2 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors mt-4"
                 >
+                  <Download className="w-4 h-4 mr-2" />
                   Resume
-                </a>
+                </button>
               </div>
             </div>
           )}
@@ -428,52 +456,10 @@ function App() {
           </div>
         </section>
 
-        {/* Contact section */}
-        <section id="contact" className="py-20 sm:py-32">
-          <div className="max-w-2xl mx-auto text-center px-4">
-            <p className="section-heading">04. What's Next?</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 mb-6">
-              Get In Touch
-            </h2>
-            <p className="text-gray-400 mb-8 sm:mb-12">
-              I'm always interested in hearing about new opportunities and
-              exciting projects. Whether you have a question or just want to say
-              hi, feel free to reach out!
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <a
-                href="mailto:birkelandtaylor@gmail.com"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors"
-              >
-                <Mail className="mr-2" size={18} />
-                Email Me
-              </a>
-              <a
-                href="https://www.linkedin.com/in/taylor-birkeland-a0100175"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors"
-              >
-                <Linkedin className="mr-2" size={18} />
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/tabirkeland"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors"
-              >
-                <Github className="mr-2" size={18} />
-                GitHub
-              </a>
-            </div>
-          </div>
-        </section>
-
         {/* Education section */}
         <section id="education" className="py-20 sm:py-32">
           <div className="max-w-4xl">
-            <p className="section-heading">05. Education</p>
+            <p className="section-heading">04. Education</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 mb-6">
               Academic Background
             </h2>
@@ -509,6 +495,48 @@ function App() {
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact section */}
+        <section id="contact" className="py-20 sm:py-32">
+          <div className="max-w-2xl mx-auto text-center px-4">
+            <p className="section-heading">05. What's Next?</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 mb-6">
+              Get In Touch
+            </h2>
+            <p className="text-gray-400 mb-8 sm:mb-12">
+              I'm always interested in hearing about new opportunities and
+              exciting projects. Whether you have a question or just want to say
+              hi, feel free to reach out!
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <a
+                href="mailto:birkelandtaylor@gmail.com"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors"
+              >
+                <Mail className="mr-2" size={18} />
+                Email Me
+              </a>
+              <a
+                href="https://www.linkedin.com/in/taylor-birkeland-a0100175"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors"
+              >
+                <Linkedin className="mr-2" size={18} />
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/tabirkeland"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border border-[#64ffda] text-[#64ffda] rounded font-mono text-sm hover:bg-[#64ffda]/10 transition-colors"
+              >
+                <Github className="mr-2" size={18} />
+                GitHub
+              </a>
             </div>
           </div>
         </section>
