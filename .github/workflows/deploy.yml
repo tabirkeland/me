@@ -37,15 +37,31 @@ jobs:
       - name: List build output files
         run: ls -la ./dist
 
-      # Set proper MIME types for JavaScript files
-      - name: Create _headers file for MIME types
+      # Create a vercel.json file instead of _headers
+      - name: Create vercel.json for MIME types
         run: |
-          echo "/*" > ./dist/_headers
-          echo "  Access-Control-Allow-Origin: *" >> ./dist/_headers
-          echo "*.js" >> ./dist/_headers
-          echo "  Content-Type: application/javascript" >> ./dist/_headers
-          echo "*.mjs" >> ./dist/_headers
-          echo "  Content-Type: application/javascript" >> ./dist/_headers
+          echo '{
+            "headers": [
+              {
+                "source": "/(.*)\\.js$",
+                "headers": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/javascript"
+                  }
+                ]
+              },
+              {
+                "source": "/(.*)\\.mjs$",
+                "headers": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/javascript"
+                  }
+                ]
+              }
+            ]
+          }' > ./dist/vercel.json
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
