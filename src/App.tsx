@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Menu,
   X,
@@ -20,9 +20,9 @@ function App() {
   const sections = [
     { id: "about", title: "About", number: "01" },
     { id: "skills", title: "Skills", number: "02" },
-    { id: "education", title: "Education", number: "03" },
-    { id: "experience", title: "Experience", number: "04" },
-    { id: "contact", title: "Contact", number: "05" },
+    { id: "experience", title: "Experience", number: "03" },
+    { id: "contact", title: "Contact", number: "04" },
+    { id: "education", title: "Education", number: "05" },
   ];
 
   const skills = [
@@ -280,53 +280,10 @@ function App() {
           </div>
         </section>
 
-        {/* Education section */}
-        <section id="education" className="py-20 sm:py-32">
-          <div className="max-w-4xl">
-            <p className="section-heading">03. Education</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 mb-6">
-              Academic Background
-            </h2>
-            <div className="space-y-6">
-              <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors">
-                <h3 className="text-xl font-semibold text-gray-200 mb-2">
-                  Electronics Engineering Technology (ETEC)
-                </h3>
-                <p className="text-[#64ffda] font-mono text-sm mb-4">
-                  Western Washington University
-                </p>
-                <p className="font-mono text-sm mb-4">2006 - 2013</p>
-                <ul className="space-y-4">
-                  <li className="flex">
-                    <span className="text-[#64ffda] mr-2">▹</span>
-                    <span>
-                      Specialized in electronics engineering and embedded
-                      systems development
-                    </span>
-                  </li>
-                  <li className="flex">
-                    <span className="text-[#64ffda] mr-2">▹</span>
-                    <span>
-                      Focused on hardware-software integration and system design
-                    </span>
-                  </li>
-                  <li className="flex">
-                    <span className="text-[#64ffda] mr-2">▹</span>
-                    <span>
-                      Developed strong foundation in electrical engineering
-                      principles and programming
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Experience section */}
         <section id="experience" className="py-20 sm:py-32">
           <div className="max-w-4xl">
-            <p className="section-heading">04. Experience</p>
+            <p className="section-heading">03. Experience</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 mb-6">
               Where I've Worked
             </h2>
@@ -474,7 +431,7 @@ function App() {
         {/* Contact section */}
         <section id="contact" className="py-20 sm:py-32">
           <div className="max-w-2xl mx-auto text-center px-4">
-            <p className="section-heading">05. What's Next?</p>
+            <p className="section-heading">04. What's Next?</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 mb-6">
               Get In Touch
             </h2>
@@ -509,6 +466,49 @@ function App() {
                 <Github className="mr-2" size={18} />
                 GitHub
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Education section */}
+        <section id="education" className="py-20 sm:py-32">
+          <div className="max-w-4xl">
+            <p className="section-heading">05. Education</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 mb-6">
+              Academic Background
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors">
+                <h3 className="text-xl font-semibold text-gray-200 mb-2">
+                  Electronics Engineering Technology (ETEC)
+                </h3>
+                <p className="text-[#64ffda] font-mono text-sm mb-4">
+                  Western Washington University
+                </p>
+                <p className="font-mono text-sm mb-4">2006 - 2013</p>
+                <ul className="space-y-4">
+                  <li className="flex">
+                    <span className="text-[#64ffda] mr-2">▹</span>
+                    <span>
+                      Specialized in electronics engineering and embedded
+                      systems development
+                    </span>
+                  </li>
+                  <li className="flex">
+                    <span className="text-[#64ffda] mr-2">▹</span>
+                    <span>
+                      Focused on hardware-software integration and system design
+                    </span>
+                  </li>
+                  <li className="flex">
+                    <span className="text-[#64ffda] mr-2">▹</span>
+                    <span>
+                      Developed strong foundation in electrical engineering
+                      principles and programming
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
