@@ -199,14 +199,10 @@ function App() {
               </a>
             </div>
             <p className="max-w-xl text-gray-400 text-base sm:text-lg mb-8 sm:mb-12">
-              Highly skilled Software Engineer and Engineering Leader with deep
-              expertise in developing scalable systems, real-time APIs, and
-              robust application architectures. I love solving complex problems,
-              turning ideas into reality, and have successfully built everything
-              from fintech platforms to enterprise solutions. Beyond technology,
-              I thrive on building and leading high-performance teams, mentoring
-              engineers, and fostering collaboration that drives innovation and
-              meaningful impact
+              Highly skilled Software Engineer and Engineering Leader with
+              extensive expertise in developing scalable systems, real-time
+              APIs, and robust application architectures. Proven track record in
+              building and leading high-performance engineering teams.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <a
