@@ -71,7 +71,7 @@ function App() {
       icon: <Cpu className="w-6 h-6" />,
       name: "Fintech Systems",
       description:
-        "Specialized in developing high-performance fintech payment processing platforms, implementing advanced ledgering systems, and ensuring financial data accuracy and compliance. Expert in real-time transaction processing and banking API integrations.",
+        "Specialized in developing high-performance fintech payment processing platforms, implementing advanced ledgering systems, and ensuring financial data accuracy and compliance. Advanced expertise in real-time transaction processing and banking API integrations.",
     },
     {
       icon: <LineChart className="w-6 h-6" />,
@@ -88,15 +88,7 @@ function App() {
   ];
 
   const technologies = {
-    backend: [
-      "Python",
-      "Node.js",
-      "GraphQL",
-      "PHP/Laravel",
-      "MySQL",
-      "Redis",
-      "AWS",
-    ],
+    backend: ["PHP/Laravel", "Python", "Node.js", "GraphQL", "MySQL", "Redis"],
     frontend: [
       "React",
       "Angular",
@@ -105,6 +97,7 @@ function App() {
       "CSS",
       "Bootstrap",
       "Vite",
+      "Webpack",
     ],
     infrastructure: ["AWS", "Docker", "CI/CD", "Linux", "Microservices"],
   };
@@ -206,10 +199,14 @@ function App() {
               </a>
             </div>
             <p className="max-w-xl text-gray-400 text-base sm:text-lg mb-8 sm:mb-12">
-              Highly skilled Software Engineer and Engineering Leader with
-              extensive expertise in developing scalable systems, real-time
-              APIs, and robust application architectures. Proven track record in
-              building and leading high-performance engineering teams.
+              Highly skilled Software Engineer and Engineering Leader with deep
+              expertise in developing scalable systems, real-time APIs, and
+              robust application architectures. I love solving complex problems,
+              turning ideas into reality, and have successfully built everything
+              from fintech platforms to enterprise solutions. Beyond technology,
+              I thrive on building and leading high-performance teams, mentoring
+              engineers, and fostering collaboration that drives innovation and
+              meaningful impact
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <a
@@ -318,7 +315,7 @@ function App() {
             <div className="space-y-6 sm:space-y-12">
               <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors">
                 <h3 className="text-xl font-semibold text-gray-200 mb-2">
-                  Co-Founder & VP of Engineering{" "}
+                  Co-Founder & Engineering Leader{" "}
                   <a
                     href="https://tiphaus.com"
                     target="_blank"
@@ -333,31 +330,36 @@ function App() {
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
-                      Grew from 2 to 10 engineers, fostered high-performance
-                      culture, and drove innovation by expanding and cultivating
-                      elite engineering team
+                      Grew team from 2 to 10 engineers, fostered
+                      high-performance culture, and drove innovation by
+                      expanding and cultivating elite engineering team.
                     </span>
                   </li>
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
-                      Generated $300K+ in monthly recurring revenue by
-                      propelling business expansion from launch to 3,000+ paying
-                      customers
+                      Generated significant monthly recurring revenue and
+                      established a robust market presence by driving rapid
+                      business growth and onboarding thousands of paying
+                      customers.
                     </span>
                   </li>
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
-                      Engineered scalable infrastructure supporting 30x user
-                      growth and accommodating 90K+ end-users
+                      Engineered scalable infrastructure, supporting 30x user
+                      growth and accommodating 90K+ end-users, enhancing
+                      platform stability and transaction efficiency.
                     </span>
                   </li>
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
-                      Formulated and implemented ledgering and reconciliation
-                      systems ensuring financial data accuracy and compliance
+                      Led development of "Earned Tip Access," a fintech product
+                      for daily tip distribution, enhancing employee financial
+                      wellness and retention. Managed technical architecture,
+                      banking API integration, and deployment, boosting user
+                      adoption and satisfaction.
                     </span>
                   </li>
                 </ul>
@@ -381,28 +383,21 @@ function App() {
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
                       Reduced system downtime by enhancing firmware deployment
-                      pipelines and streamlining automation
+                      pipelines, streamlining automation, and ensuring updates.
+                    </span>
+                  </li>
+                  <li className="flex">
+                    <span className="text-[#64ffda] mr-2">▹</span>
+                    <span>
+                      Improved system reliability and efficiency by developing
+                      embedded software for remote monitoring and diagnostics.
                     </span>
                   </li>
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
                       Optimized asset performance by integrating IoT telematics
-                      for real-time data tracking and predictive maintenance
-                    </span>
-                  </li>
-                  <li className="flex">
-                    <span className="text-[#64ffda] mr-2">▹</span>
-                    <span>
-                      Improved system reliability by developing embedded
-                      software for remote monitoring and diagnostics
-                    </span>
-                  </li>
-                  <li className="flex">
-                    <span className="text-[#64ffda] mr-2">▹</span>
-                    <span>
-                      Designed and deployed embedded system applications
-                      enabling real-time monitoring and control
+                      for real-time data tracking and predictive maintenance.
                     </span>
                   </li>
                 </ul>
@@ -425,29 +420,31 @@ function App() {
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
-                      Designed and implemented complex online purchasing systems
-                      with Salesforce integration
+                      Designed and implemented online purchasing systems with
+                      Salesforce integration, expediting transactions and
+                      improving data synchronization.
                     </span>
                   </li>
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
-                      Developed comprehensive analytics dashboard integrating
-                      Salesforce data for real-time insights
+                      Increased workflow automation and internal operations by
+                      building and maintaining internal web applications.
                     </span>
                   </li>
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
-                      Established new development processes while optimizing
-                      team efficiency
+                      Established new development processes, while optimizing
+                      team efficiency and ensuring scalable, maintainable code.
                     </span>
                   </li>
                   <li className="flex">
                     <span className="text-[#64ffda] mr-2">▹</span>
                     <span>
-                      Led development of IAPP Events mobile app enhancing
-                      conference experiences
+                      Accelerated learning curves and fostered collaborative,
+                      high-performance engineering culture by mentoring and
+                      onboarding new team members.
                     </span>
                   </li>
                 </ul>
