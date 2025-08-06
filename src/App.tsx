@@ -304,7 +304,7 @@ function App() {
                 <div className="relative group">
                   <div className="relative z-10">
                     <img
-                      src="https://media.licdn.com/dms/image/v2/C4D03AQGqsIKQuyVGRQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1639631293071?e=1753920000&v=beta&t=TseORBzXRqvv7vsFmAleQ0zjslXzI-6jlA2kXpXMOdM"
+                      src="/headshot.jpeg"
                       alt="Taylor Birkeland"
                       className="w-full rounded grayscale hover:grayscale-0 transition-all duration-300"
                     />
