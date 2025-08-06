@@ -309,7 +309,7 @@ function App() {
                       className="w-full rounded grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
-                  <div className="absolute inset-0 border-2 border-[#64ffda] rounded translate-x-4 translate-y-4 -z-0 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform"></div>
+                  <div className="absolute inset-0 border-2 border-[#64ffda] rounded translate-x-2 translate-y-2 -z-0 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"></div>
                 </div>
               </div>
             </div>
