@@ -301,15 +301,15 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <div className="relative group">
-                  <div className="relative z-10">
+                <div className="relative group max-w-sm mx-auto">
+                  <div className="relative z-10 overflow-hidden rounded">
                     <img
                       src="/headshot.jpeg"
                       alt="Taylor Birkeland"
-                      className="w-full rounded grayscale hover:grayscale-0 transition-all duration-300"
+                      className="w-full h-80 object-cover object-center shadow-lg hover:shadow-xl transition-all duration-300 image-crisp"
                     />
                   </div>
-                  <div className="absolute inset-0 border-2 border-[#64ffda] rounded translate-x-2 translate-y-2 -z-0 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"></div>
+                  <div className="absolute inset-0 border-2 border-[#64ffda] rounded translate-x-3 translate-y-3 -z-0 group-hover:translate-x-2 group-hover:translate-y-2 transition-all duration-300 opacity-80"></div>
                 </div>
               </div>
             </div>

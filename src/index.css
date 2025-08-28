@@ -26,3 +26,9 @@
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out;
 }
+
+.image-crisp {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}

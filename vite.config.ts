@@ -12,7 +12,13 @@ export default defineConfig({
       output: {
         entryFileNames: "assets/[name].[hash].js",
         chunkFileNames: "assets/[name].[hash].js",
-        assetFileNames: "assets/[name].[hash].[ext]",
+        assetFileNames: (assetInfo) => {
+          // Keep specific public assets in root without hashing
+          if (assetInfo.names && assetInfo.names.some(name => ['headshot.jpeg', 'resume.pdf', 'favicon.svg'].includes(name))) {
+            return '[name].[ext]';
+          }
+          return "assets/[name].[hash].[ext]";
+        },
       },
     },
   },
