@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom styles */
 @layer base {
   body {
     @apply bg-[#0a192f] text-gray-300;
