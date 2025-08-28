@@ -302,14 +302,14 @@ function App() {
                   </div>
                 </div>
                 <div className="relative group max-w-sm mx-auto">
-                  <div className="relative z-10 overflow-hidden rounded">
+                  <div className="relative z-10 overflow-hidden rounded aspect-square">
                     <img
                       src="/headshot.jpeg"
                       alt="Taylor Birkeland"
-                      className="w-full h-80 object-cover object-center shadow-lg hover:shadow-xl transition-all duration-300 image-crisp"
+                      className="w-full h-full object-cover object-center shadow-lg hover:shadow-xl transition-all duration-300 image-crisp"
                     />
                   </div>
-                  <div className="absolute inset-0 border-2 border-[#64ffda] rounded translate-x-3 translate-y-3 -z-0 group-hover:translate-x-2 group-hover:translate-y-2 transition-all duration-300 opacity-80"></div>
+                  <div className="absolute top-6 left-6 w-full aspect-square border-2 border-[#64ffda] rounded -z-0 group-hover:top-4 group-hover:left-4 transition-all duration-300 opacity-80"></div>
                 </div>
               </div>
             </div>
