@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { TypedName, RotatingTitle } from "./components/AnimatedComponents";
 import LoadingScreen from "./components/LoadingScreen";
-import headshotImage from "./assets/headshot.jpeg";
 import {
   Menu,
   X,
@@ -305,7 +304,7 @@ function App() {
                 <div className="relative group max-w-sm mx-auto">
                   <div className="relative z-10 overflow-hidden rounded">
                     <img
-                      src={headshotImage}
+                      src="/headshot.jpeg"
                       alt="Taylor Birkeland"
                       className="w-full h-80 object-cover object-center shadow-lg hover:shadow-xl transition-all duration-300 image-crisp"
                     />
