@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TypedName, RotatingTitle } from "./components/AnimatedComponents";
 import LoadingScreen from "./components/LoadingScreen";
+import BackgroundLegoStacking from "./components/BackgroundLegoStacking";
+import BuildingBlocksTracker from "./components/BuildingBlocksTracker";
 import {
   Menu,
   X,
@@ -19,6 +21,8 @@ import {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [skillsVisible, setSkillsVisible] = useState(false);
+  const skillsRef = useRef<HTMLDivElement>(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -106,6 +110,31 @@ function App() {
     infrastructure: ["AWS", "Docker", "CI/CD", "Linux", "Microservices"],
   };
 
+  // Add intersection observer for skills animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setSkillsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = skillsRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   // Add useEffect to simulate resources loading and handle real loading
   useEffect(() => {
     // This ensures the loading screen shows for at least 2 seconds
@@ -132,10 +161,14 @@ function App() {
         <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
       )}
       <div
-        className={`min-h-screen bg-[#0a192f] text-gray-400 ${
+        className={`min-h-screen bg-[#0a192f] text-gray-400 relative ${
           isLoading ? "hidden" : ""
         }`}
       >
+        {/* Subtle background animation */}
+        <BackgroundLegoStacking />
+        {/* Building blocks progress tracker */}
+        <BuildingBlocksTracker />
         {/* Header */}
         <header className="fixed w-full bg-[#0a192f]/90 backdrop-blur-sm z-50">
           <nav className="container mx-auto px-4 sm:px-6 py-4">
@@ -317,7 +350,7 @@ function App() {
 
           {/* Skills section */}
           <section id="skills" className="py-20 sm:py-32">
-            <div className="max-w-4xl">
+            <div className="max-w-4xl" ref={skillsRef}>
               <p className="section-heading">02. Core Skills</p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 mb-6">
                 What I Do Best
@@ -326,7 +359,9 @@ function App() {
                 {skills.map((skill, index) => (
                   <div
                     key={index}
-                    className="bg-[#112240] rounded-lg p-5 sm:p-6 hover:bg-[#112240]/70 transition-colors"
+                    className={`bg-[#112240] rounded-lg p-5 sm:p-6 hover:bg-[#112240]/70 transition-colors building-block-card ${
+                      skillsVisible ? 'skill-card-animated' : 'opacity-0'
+                    }`}
                   >
                     <div className="text-[#64ffda] mb-4">{skill.icon}</div>
                     <h3 className="text-lg sm:text-xl font-semibold text-gray-200 mb-3">
@@ -349,7 +384,7 @@ function App() {
                 Where I've Worked
               </h2>
               <div className="space-y-6 sm:space-y-12">
-                <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors">
+                <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors building-block-card">
                   <h3 className="text-xl font-semibold text-gray-200 mb-2">
                     Co-Founder & Engineering Leader{" "}
                     <a
@@ -401,7 +436,7 @@ function App() {
                   </ul>
                 </div>
 
-                <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors">
+                <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors building-block-card">
                   <h3 className="text-xl font-semibold text-gray-200 mb-2">
                     CANect Solutions Engineer{" "}
                     <a
@@ -441,7 +476,7 @@ function App() {
                   </ul>
                 </div>
 
-                <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors">
+                <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors building-block-card">
                   <h3 className="text-xl font-semibold text-gray-200 mb-2">
                     Software Developer{" "}
                     <a
@@ -500,7 +535,7 @@ function App() {
                 Academic Background
               </h2>
               <div className="space-y-6">
-                <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors">
+                <div className="bg-[#112240] rounded-lg p-6 sm:p-8 hover:bg-[#112240]/70 transition-colors building-block-card">
                   <h3 className="text-xl font-semibold text-gray-200 mb-2">
                     Electronics Engineering Technology (ETEC)
                   </h3>

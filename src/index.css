@@ -33,3 +33,170 @@
   image-rendering: crisp-edges;
   image-rendering: pixelated;
 }
+
+/* Subtle building block card styling */
+.building-block-card {
+  position: relative;
+  border-top: 1px solid rgba(100, 255, 218, 0.15);
+  transition: all 0.3s ease;
+}
+
+.building-block-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 24px;
+  width: 4px;
+  height: 4px;
+  background: rgba(100, 255, 218, 0.15);
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.building-block-card:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced hover with subtle lift */
+.building-block-card:hover {
+  transform: translateY(-1px);
+  border-top-color: rgba(100, 255, 218, 0.2);
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Staggered animation for skills */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-card-animated {
+  opacity: 0;
+  animation: slideUpFade 0.5s ease forwards;
+}
+
+.skill-card-animated:nth-child(1) { animation-delay: 0.025s; }
+.skill-card-animated:nth-child(2) { animation-delay: 0.05s; }
+.skill-card-animated:nth-child(3) { animation-delay: 0.075s; }
+.skill-card-animated:nth-child(4) { animation-delay: 0.1s; }
+.skill-card-animated:nth-child(5) { animation-delay: 0.125s; }
+.skill-card-animated:nth-child(6) { animation-delay: 0.15s; }
+
+/* Subtle connection lines (will be added via JS on hover) */
+.connection-line {
+  position: absolute;
+  border-top: 1px dashed #64ffda;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.connection-line.active {
+  opacity: 0.2;
+}
+
+/* Background block floating animation */
+@keyframes blockFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotate(0deg);
+  }
+  20% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.3;
+    transform: translateY(-10px) rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) rotate(-5deg);
+  }
+}
+
+.animate-blockFloat {
+  animation: blockFloat 10s ease-in-out infinite;
+}
+
+/* Building Blocks Tracker Styles */
+.lego-block {
+  opacity: 0;
+  transform: translateY(-50px) scale(0.5);
+}
+
+@keyframes blockDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.5) rotate(-10deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(5px) scale(1.1) rotate(5deg);
+  }
+  70% {
+    transform: translateY(-2px) scale(0.95) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes blockRemove {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px) scale(0.5) rotate(45deg);
+  }
+}
+
+@keyframes blockWiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+.lego-block:hover > div {
+  animation: blockWiggle 0.5s ease-in-out;
+}
+
+/* Block stacking indicator */
+@keyframes stackPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.building-progress {
+  animation: stackPulse 2s ease-in-out infinite;
+}
+
+/* Optional: Section headers with subtle block icon */
+.section-heading-with-block::before {
+  content: '■';
+  margin-right: 8px;
+  font-size: 10px;
+  vertical-align: middle;
+  opacity: 0.4;
+  color: #64ffda;
+}
